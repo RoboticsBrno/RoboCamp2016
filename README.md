@@ -13,3 +13,5 @@ Ahoj! V tomto repozitář nalezneš všechny materiály pro náš tábor.
 demostrací jednotlivých periferií. Kódy jsou často založeny na již existujících
 ukázkových projektech nalezených různě na internetu, zdroj je vždy v komentáři
 uveden.
+
+- na našich stránkách [RobotikaBrno.cz](http://robotikabrno.cz/robotika-brno/navody/arduino) nalezneš návody pro instalaci prostředí a základní použití Arduina
