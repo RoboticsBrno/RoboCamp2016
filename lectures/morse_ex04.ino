@@ -12,11 +12,11 @@
 int pinLed = 13;
 char ch;
 
-int dotTime = 500;
-int hashTime = 1000;
-int spaceTime = 1500;
-int charTime = 500;
-int wordTime = 2000;
+int dotTime = 500;    // .
+int hashTime = 1000;  // -
+int spaceDotHashTime = 500;
+int charTime = 1500;
+int wordTime = 3500;
 
 String morse_letter[] = 
 {
@@ -66,19 +66,15 @@ void blink(char ch) {
   Serial.write(ch);
   digitalWrite(pinLed, HIGH);
   if(ch == '.')
-  {
     delay(dotTime);
-  }
-  else if(ch == '-')
-  {
+  else // ch == '-'
     delay(hashTime);
-  }
   digitalWrite(pinLed, LOW);
-  delay(spaceTime); 
+  delay(spaceDotHashTime);    
 }
 
 void blinking(String str) {
-  for(int i; i < str.length(); i++)
+  for(int i = 0; i < str.length(); i++)
   {
     blink(str[i]);  
   }
@@ -100,9 +96,9 @@ void loop() {
     else if(ch == ' ')
     {
       Serial.write('|');
-      delay(wordTime);
+      delay(wordTime - spaceDotHashTime);
     }
     Serial.write('|');
-    delay(charTime);
+    delay(charTime - spaceDotHashTime);
   }
 }

@@ -12,10 +12,10 @@
 int pinLed = 13;
 char ch;
 
-int dotTime = 500;
-int hashTime = 1000;
-int spaceTime = 1500;
-int charTime = 500;
+int dotTime = 500;    // .
+int hashTime = 1000;  // -
+int spaceDotHashTime = 500;
+int charTime = 1500;
 
 void blink(char ch) {
   digitalWrite(pinLed, HIGH);
@@ -24,11 +24,11 @@ void blink(char ch) {
   else // ch == '-'
     delay(hashTime);
   digitalWrite(pinLed, LOW);
-  delay(spaceTime);    
+  delay(spaceDotHashTime);    
 }
 
 void blinking(String str) {
-  for(int i; i < str.length(); i++)
+  for(int i = 0; i < str.length(); i++)
   {
     blink(str[i]);  
   }
@@ -50,10 +50,11 @@ void loop() {
         digitalWrite(pinLed, HIGH);
         delay(dotTime);
         digitalWrite(pinLed, LOW);
-        delay(spaceTime);
+        delay(spaceDotHashTime);
         digitalWrite(pinLed, HIGH);
         delay(hashTime);
         digitalWrite(pinLed, LOW);
+        delay(spaceDotHashTime);
         break;
       case 'B':
         Serial.print("-...");
@@ -80,6 +81,6 @@ void loop() {
         break;
     }
     
-    delay(charTime);
+    delay(charTime - spaceDotHashTime);
   }
 }
