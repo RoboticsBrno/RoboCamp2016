@@ -9,7 +9,7 @@ const int DHT_GND_PIN = 5;
 const int DHT_VCC_PIN = 6;
 
 const int LED_COUNT = 24;
-const int LED_BRIGHTNESS = 64;
+const int LED_BRIGHTNESS = 255;
 
 const int MIN_TEMP = 15;
 const int MAX_TEMP = 40;

@@ -11,13 +11,14 @@ a pomocí nich si navzájem ovládat jas LEDek připojených na pinech 3 (LED 1)
 
 Arduina jsou propojená SW sériovou linkou na pinech 10 a 11 (RX, TX). Vždy je
 propojeno RX a TX dvou sousedních Arduin. Arduina mají navíc propojené země.
+Komunikační rychlost je 9600 baudů za sekundu.
 
 Každé Arduino má svůj unikátní celočíselný identifikátor přidělený organizátory.
 Tento identifikátor musí být v programu snadno změnitelný.
 
 Arduino musí umět obsloužit následující zprávy, přičemž formát zprávy je textový,
 jednotlivá pole jsou oddělena mezerou a každá zpráva je uvozena znakem 'M' a
-špičaté závorky označují kladné celé číslo (bez nuly) s danou funkcí:
+špičaté závorky označují kladné celé číslo (bez nuly, vyjma hopů) s danou funkcí:
 
 - `M <ID odesílatele> <ID příjemce> <počet hopů> s <číslo ledky> <jas>` -
    nastaví jas LED`<číslo ledky>` na hodnotu `<jas>` Pokud je jas mimo rozsah
@@ -28,7 +29,7 @@ jednotlivá pole jsou oddělena mezerou a každá zpráva je uvozena znakem 'M' 
   hodnotu `<jas>`
 
 Posílání zpráv funguje následovně: zpráva je vždy odeslána ze sériové linky s
-vlastním ID jako ID odesílatele, s ID příjemce a počtem hopů 6. 
+vlastním ID jako ID odesílatele, s ID příjemce a počtem hopů 10. 
 
 Příjem zpráv funguje následovně: pokud se ID zprávy shoduje s vlastním ID, je
 příkaz ze zprávy vykonán a na ID odesílatele se odešle zpráva potvrzující provedení.
