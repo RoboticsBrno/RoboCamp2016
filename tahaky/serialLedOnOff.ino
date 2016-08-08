@@ -21,12 +21,12 @@ void loop() {
     prijimanyZnak = Serial.read();
     Serial.write(prijimanyZnak);
 
-    if(prijimanyZnak == 'z') {
-      // zapnu led kdyz prijde 'z'
+    if(prijimanyZnak == 'z' || prijimanyZnak == 'Z') {
+      // zapnu led kdyz prijde 'z' nebo 'Z'
       digitalWrite(LED_BUILTIN, HIGH);
     }
-    else {
-      // zhasnu led kdyz prijde cokoliv jineho
+    else if(prijimanyZnak == 'v' || prijimanyZnak == 'V') {
+      // zhasnu led kdyz prijde 'v' nebo 'V'
       digitalWrite(LED_BUILTIN, LOW);
     }
   }  
