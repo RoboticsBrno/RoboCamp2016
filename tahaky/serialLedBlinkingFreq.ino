@@ -7,6 +7,7 @@
    
    Popis:
    Ovladani blikani ledky a jeji frekvence pomoci seriove linky.
+   Pri zmene frekvence nejprve zrychlujte a pak zpomalujte -> lepe pozorovatelne.
  */
 
 void setup() 
@@ -28,22 +29,24 @@ void loop()
     if(prijimanyZnak == 'z' || prijimanyZnak == 'Z') // porovnani prijateho znaku
     {
       blikaniZapnutoVypnuto = true;
-      Serial.println("Blikani - zapnuto ('z')");
+      Serial.println("Blikani - zapnuto ('z' nebo 'Z')");
     }
     else if(prijimanyZnak == 'v' || prijimanyZnak == 'V') 
     {
       blikaniZapnutoVypnuto = false;
-      Serial.println("Blikani - vypnuto ('v')"); 
+      Serial.println("Blikani - vypnuto ('v' nebo 'V')"); 
     }    
     else if(prijimanyZnak == 'p' || prijimanyZnak == 'P') 
     {
       delkaPauzy = delkaPauzy + 100; // delkaPauzy += 100;
-      Serial.println("Blikani - pomaleji ('p')"); 
+      Serial.print("Blikani - pomaleji ('p' nebo 'P'): "); 
+      Serial.println(delkaPauzy);
     }    
     else if(prijimanyZnak == 'r' || prijimanyZnak == 'R') 
     {
       delkaPauzy = delkaPauzy - 100; // delkaPauzy -= 100;
-      Serial.println("Blikani - rychleji ('r')"); 
+      Serial.print("Blikani - rychleji ('r' nebo 'R'): "); 
+      Serial.println(delkaPauzy);
     }
     else
       Serial.println("Neznamy prikaz");
