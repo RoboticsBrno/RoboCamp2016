@@ -9,23 +9,28 @@
    Ovladani ledky pomoci seriove linky.
  */
 
-void setup() {
-  pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);
+void setup() 
+{
+  pinMode(LED_BUILTIN, OUTPUT); // nastaveni pinu LED_BUILTIN na vystupni
+  Serial.begin(9600); // zapnuti seriove linky
 }
 
-char prijimanyZnak;
+char prijimanyZnak; // promena pro prijimani znaku po seriove lince
 
-void loop() {
-  if (Serial.available()) {
-    prijimanyZnak = Serial.read();
-    Serial.write(prijimanyZnak);
+void loop() 
+{
+  if (Serial.available()) 
+  {
+    prijimanyZnak = Serial.read();  // cteni znaku ze seriove linky
+    Serial.write(prijimanyZnak);    // odeslani prijateho znaku zpet do PC
 
-    if(prijimanyZnak == 'z' || prijimanyZnak == 'Z') {
+    if(prijimanyZnak == 'z' || prijimanyZnak == 'Z') // porovnani prijateho znaku
+    {
       // zapnu led kdyz prijde 'z' nebo 'Z'
       digitalWrite(LED_BUILTIN, HIGH);
     }
-    else if(prijimanyZnak == 'v' || prijimanyZnak == 'V') {
+    else if(prijimanyZnak == 'v' || prijimanyZnak == 'V') 
+    {
       // zhasnu led kdyz prijde 'v' nebo 'V'
       digitalWrite(LED_BUILTIN, LOW);
     }
